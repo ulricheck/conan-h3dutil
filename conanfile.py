@@ -10,7 +10,7 @@ class H3DUtilConan(ConanFile):
     short_paths = True
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
-    exports = "FindH3DUTIL.txt"
+    exports = "FindH3DUtil.cmake"
     options = {"shared": [True, False]}
     default_options = "shared=True"
 
@@ -40,7 +40,6 @@ class H3DUtilConan(ConanFile):
 
     def package(self):
         self.copy(pattern='*.h' , dst="include", src="source/include", keep_path=False)
-        self.copy(pattern='*.cmake' , dst="cmake", src="source/cmake", keep_path=False)
 
     def package_info(self):
         if self.settings.arch == "x86":
